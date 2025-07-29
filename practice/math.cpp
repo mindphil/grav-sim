@@ -20,7 +20,7 @@ int main(){
 
     auto g{10};
     auto h{5};
-    auto i{g / h};
+    decltype (h) i{g / h};
     
     // output result in terminal with cout
 
