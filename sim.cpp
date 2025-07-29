@@ -1,30 +1,25 @@
 #include <iostream>
-#include <string>
+#include <limits>
 
-using namespace std;
-
-// Defining the gravity for any mass
+// The gravitational force of an object with mass m, on earth
 
 int main()
 {
-    float g, m, a;
-    a = 9.8;
+    float g = 0.0f, m = 0.0f, a = 9.8f; //constants and initial value
+    
+    std::cout << "Enter a positive number and press ENTER: ";
+    std::cin >> m;
 
-    //input mass
-    cout << "Enter a number and press ENTER: ";
-    cin >> m;
-
-    //Error if entry is not a number
-    if (cin.fail()){
-        cout << "Input a number!";
-        return 0;
+    while (std::cin.fail() or m <= 0)
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Not valid, try again: ";
+        std::cin >> m;
+        
     }
-    //Error if entry is less than or equal to zero
-    else if (m <= 0){
-        cout << "Mass cannot be negative or zero!";
-        return 0;
-    }
+    
     g = m * a;
-    cout << "The Force of gravity is: " << g << "ms^2";
+    std::cout << "The Force of gravity is: " << g << "N\n";
     return 0;
 }
