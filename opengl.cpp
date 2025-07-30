@@ -17,18 +17,15 @@ int main()
 
     glfwMakeContextCurrent(window);
 
-    // Main loop
     while (!glfwWindowShouldClose(window)) {
         // Clear screen with dark blue color
         glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // Swap buffers and poll events
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    // Cleanup
     glfwTerminate();
     return 0;
 }
